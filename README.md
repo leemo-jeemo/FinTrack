@@ -17,11 +17,28 @@ FinTrack is a personal software project intended for educational and information
 * Transaction categories and descriptions
 * Strict `MM-DD-YYYY` date validation
 * Amount validation
+* Positive transaction amount validation
 * Transaction ID validation
+* Required-field validation
+* Invalid input retry handling
 * Handling for nonexistent transaction IDs
 * Looping command-line interface
 * `fintrack` command for launching the application
 * Git-based version control
+
+## Roadmap
+
+* [ ] Improve transaction input validation
+* [ ] Add transaction filtering
+* [ ] Add transaction searching
+* [ ] Add income and expense summaries
+* [ ] Add budgeting
+* [ ] Add financial reports
+* [ ] Add charts and data visualization
+* [ ] Improve database error handling
+* [ ] Add automated tests
+* [ ] Build a graphical user interface
+* [ ] Prepare FinTrack for distribution
 
 ## Tech Stack
 
@@ -109,20 +126,6 @@ Example:
 ```
 
 FinTrack validates dates before allowing a transaction to be created or updated.
-
-## Roadmap
-
-* [ ] Improve transaction input validation
-* [ ] Add transaction filtering
-* [ ] Add transaction searching
-* [ ] Add income and expense summaries
-* [ ] Add budgeting
-* [ ] Add financial reports
-* [ ] Add charts and data visualization
-* [ ] Improve error handling
-* [ ] Add automated tests
-* [ ] Build a graphical user interface
-* [ ] Prepare FinTrack for distribution
 
 ## Development Environment
 
