@@ -89,4 +89,6 @@ All application code, project structure, design decisions, and implementation we
 
 ## License
 
-License to be determined.
+FinTrack is licensed under the **MIT License**.
+
+See the [LICENSE](LICENSE) file for the full license text.
