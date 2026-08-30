@@ -2,6 +2,9 @@
 
 A lightweight personal finance tracker built with Python and SQLite.
 
+## Disclaimer
+FinTrack is a personal software project intended for educational and informational purposes. It is not financial, tax, accounting, or investment advice.
+
 ## Current Features
 
 * SQLite database for persistent transaction storage
