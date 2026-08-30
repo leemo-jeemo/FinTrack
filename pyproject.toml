@@ -1,0 +1,9 @@
+[project]
+name = "fintrack"
+version = "0.1.0"
+
+[tool.setuptools.packages.find]
+include = ["fintrack*"]
+
+[project.scripts]
+fintrack = "fintrack.main:main"

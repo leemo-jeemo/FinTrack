@@ -17,3 +17,26 @@ def get_transactions():
     results = connection.execute("SELECT * FROM transactions").fetchall()
     connection.close()
     return results
+
+
+def delete_transaction(transaction_id):
+    connection = get_connection()
+    cursor = connection.execute(
+        "DELETE FROM transactions WHERE id = ?",
+        (transaction_id,),
+    )
+    connection.commit()
+    connection.close()
+    return cursor.rowcount
+
+
+def update_transaction(transaction_id, date, amount, type, category, description):
+    connection = get_connection()
+    cursor = connection.execute(
+        "UPDATE transactions SET date = ?, amount = ?, type = ?, category = ?, description = ? WHERE id = ?",
+        (date, amount, type, category, description, transaction_id),
+    )
+    connection.commit()
+    connection.close()
+
+    return cursor.rowcount
