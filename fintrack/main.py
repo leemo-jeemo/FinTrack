@@ -5,6 +5,7 @@ from .transactions import (
     delete_transaction,
     update_transaction,
     get_transactions_by_category,
+    get_transactions_by_type,
 )
 from datetime import datetime
 
@@ -69,15 +70,23 @@ def add_transaction_menu():
 
 def view_transactions():
     while True:
-        choice = input("View Menu\n1. View All\n2. View by Category\n3. Back\nChoice: ")
+        choice = input("View Menu\n1. View All\n2. View by ID (TBA)\n3. View by Date (TBA)\n4. View by Type\n5. View by Category\n6. Back\nChoice: ")
         if choice == "1":
             transactions = get_transactions()
             display_transactions(transactions)
         elif choice == "2":
+            print("To be added")
+        elif choice == "3":
+            print("To be added")
+        elif choice == "4":
+            transaction_type = get_required_input("Type: ")
+            transactions = get_transactions_by_type(transaction_type)
+            display_transactions(transactions)
+        elif choice == "5":
             category = get_required_input("Category: ")
             transactions = get_transactions_by_category(category)
             display_transactions(transactions)
-        elif choice == "3":
+        elif choice == "6":
             return
 
 

@@ -49,3 +49,12 @@ def get_transactions_by_category(category):
     ).fetchall()
     connection.close()
     return results
+
+
+def get_transactions_by_type(type):
+    connection = get_connection()
+    results = connection.execute(
+        "SELECT * FROM transactions WHERE type =?", (type,)
+    ).fetchall()
+    connection.close()
+    return results

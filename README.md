@@ -11,20 +11,18 @@ FinTrack is a personal software project intended for educational and information
 * SQLite database for persistent transaction storage
 * Add financial transactions
 * View stored transactions
-* Update existing transactions
+* View transactions by type
+* View transactions by category
+* Update transactions
 * Delete transactions
-* Transaction IDs
 * Transaction categories and descriptions
 * Strict `MM-DD-YYYY` date validation
-* Numeric amount validation
-* Positive transaction amount validation
-* Required-field validation
-* Invalid input retry handling
+* Positive amount validation
+* Required-field input validation
 * Transaction ID validation
-* Handling for nonexistent transaction IDs
-* Looping command-line interface
-* Installable `fintrack` command
+* Reusable transaction display helper
 * Git-based version control
+* `fintrack` command for launching the application
 
 ## Tech Stack
 
@@ -46,42 +44,25 @@ FinTrack/
 │   ├── main.py
 │   └── transactions.py
 ├── .gitignore
-├── LICENSE
-├── pyproject.toml
 ├── README.md
+├── pyproject.toml
 └── .venv/
 ```
 
 ## Running FinTrack
 
-After installing FinTrack as an editable package:
-
-```powershell
-python -m pip install -e .
-```
-
-FinTrack can be launched with:
+After activating the virtual environment, FinTrack can be launched with:
 
 ```powershell
 fintrack
 ```
 
-The application will initialize the database and display the main menu.
+The application initializes the database and displays the main menu.
 
-The module-based command is also available:
+Alternatively, it can be run with:
 
 ```powershell
 python -m fintrack.main
-```
-
-## Main Menu
-
-```text
-1. Add
-2. View
-3. Update
-4. Delete
-5. Exit
 ```
 
 ### Date Format
@@ -98,31 +79,30 @@ Example:
 08-30-2026
 ```
 
-### Input Validation
+### View Menu
 
-FinTrack currently validates:
+The View menu currently supports:
 
-* Dates
-* Transaction amounts
-* Positive transaction amounts
-* Transaction IDs
-* Required text fields
-* Menu selections
-
-Invalid input is rejected and the user is prompted again instead of the application terminating.
+```text
+1. View All
+2. View by ID (TBA)
+3. View by Date (TBA)
+4. View by Type
+5. View by Category
+6. Back
+```
 
 ## Roadmap
 
-* [ ] Add transaction filtering
-* [ ] Add transaction searching
+* [ ] Add transaction filtering by ID
+* [ ] Add transaction filtering by date
 * [ ] Add income and expense summaries
 * [ ] Add budgeting
 * [ ] Add financial reports
-* [ ] Add charts and data visualization
-* [ ] Improve database error handling
-* [ ] Add automated tests
 * [ ] Build a graphical user interface
-* [ ] Prepare FinTrack for distribution
+* [ ] Add charts and data visualization
+* [ ] Improve error handling
+* [ ] Add automated tests
 
 ## Development Environment
 
@@ -134,7 +114,7 @@ Invalid input is rejected and the user is prompted again instead of the applicat
 
 ## AI Acknowledgments
 
-FinTrack was developed independently with minor assistance from **ChatGPT** (Free Plan) for programming guidance, debugging assistance, explanations of Python, SQLite, and Git concepts, and README assistance.
+FinTrack was developed independently with minor assistance from **ChatGPT** (Free Plan) for programming guidance, debugging assistance, and writing Git commits.
 
 All application code, project structure, design decisions, and implementation were developed as part of the FinTrack project.
 
