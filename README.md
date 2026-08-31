@@ -16,29 +16,15 @@ FinTrack is a personal software project intended for educational and information
 * Transaction IDs
 * Transaction categories and descriptions
 * Strict `MM-DD-YYYY` date validation
-* Amount validation
+* Numeric amount validation
 * Positive transaction amount validation
-* Transaction ID validation
 * Required-field validation
 * Invalid input retry handling
+* Transaction ID validation
 * Handling for nonexistent transaction IDs
 * Looping command-line interface
-* `fintrack` command for launching the application
+* Installable `fintrack` command
 * Git-based version control
-
-## Roadmap
-
-* [ ] Improve transaction input validation
-* [ ] Add transaction filtering
-* [ ] Add transaction searching
-* [ ] Add income and expense summaries
-* [ ] Add budgeting
-* [ ] Add financial reports
-* [ ] Add charts and data visualization
-* [ ] Improve database error handling
-* [ ] Add automated tests
-* [ ] Build a graphical user interface
-* [ ] Prepare FinTrack for distribution
 
 ## Tech Stack
 
@@ -56,51 +42,39 @@ FinTrack/
 ├── data/
 │   └── fintrack.db
 ├── fintrack/
-│   ├── __init__.py
 │   ├── database.py
 │   ├── main.py
 │   └── transactions.py
 ├── .gitignore
 ├── LICENSE
 ├── pyproject.toml
-└── README.md
+├── README.md
+└── .venv/
 ```
 
-## Installation
+## Running FinTrack
 
-Clone the repository and create a virtual environment:
-
-```powershell
-python -m venv .venv
-```
-
-Activate the virtual environment:
-
-```powershell
-.venv\Scripts\Activate.ps1
-```
-
-Install FinTrack in editable mode:
+After installing FinTrack as an editable package:
 
 ```powershell
 python -m pip install -e .
 ```
 
-## Running FinTrack
-
-After installation, launch FinTrack with:
+FinTrack can be launched with:
 
 ```powershell
 fintrack
 ```
 
-Alternatively, it can be launched directly as a Python module:
+The application will initialize the database and display the main menu.
+
+The module-based command is also available:
 
 ```powershell
 python -m fintrack.main
 ```
 
-The application initializes the SQLite database and displays the main menu:
+## Main Menu
 
 ```text
 1. Add
@@ -108,12 +82,11 @@ The application initializes the SQLite database and displays the main menu:
 3. Update
 4. Delete
 5. Exit
-Choose:
 ```
 
-## Date Format
+### Date Format
 
-Transaction dates must use:
+Dates must use:
 
 ```text
 MM-DD-YYYY
@@ -125,7 +98,31 @@ Example:
 08-30-2026
 ```
 
-FinTrack validates dates before allowing a transaction to be created or updated.
+### Input Validation
+
+FinTrack currently validates:
+
+* Dates
+* Transaction amounts
+* Positive transaction amounts
+* Transaction IDs
+* Required text fields
+* Menu selections
+
+Invalid input is rejected and the user is prompted again instead of the application terminating.
+
+## Roadmap
+
+* [ ] Add transaction filtering
+* [ ] Add transaction searching
+* [ ] Add income and expense summaries
+* [ ] Add budgeting
+* [ ] Add financial reports
+* [ ] Add charts and data visualization
+* [ ] Improve database error handling
+* [ ] Add automated tests
+* [ ] Build a graphical user interface
+* [ ] Prepare FinTrack for distribution
 
 ## Development Environment
 
@@ -137,7 +134,7 @@ FinTrack validates dates before allowing a transaction to be created or updated.
 
 ## AI Acknowledgments
 
-FinTrack was developed independently with minor assistance from **ChatGPT** for programming guidance, debugging assistance, and explanations of Python, SQLite, Git, and related development concepts.
+FinTrack was developed independently with minor assistance from **ChatGPT** (Free Plan) for programming guidance, debugging assistance, explanations of Python, SQLite, and Git concepts, and README assistance.
 
 All application code, project structure, design decisions, and implementation were developed as part of the FinTrack project.
 

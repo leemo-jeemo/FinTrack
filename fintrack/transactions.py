@@ -40,3 +40,12 @@ def update_transaction(transaction_id, date, amount, type, category, description
     connection.close()
 
     return cursor.rowcount
+
+
+def get_transactions_by_category(category):
+    connection = get_connection()
+    results = connection.execute(
+        "SELECT * FROM transactions WHERE category = ?", (category,)
+    ).fetchall()
+    connection.close()
+    return results

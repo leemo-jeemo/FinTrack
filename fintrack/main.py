@@ -4,6 +4,7 @@ from .transactions import (
     get_transactions,
     delete_transaction,
     update_transaction,
+    get_transactions_by_category,
 )
 from datetime import datetime
 
@@ -25,9 +26,24 @@ def get_required_input(prompt):
         print("Input cannot be empty")
 
 
+def display_transactions(transactions):
+    if not transactions:
+        print("No transactions found")
+        return
+
+    for transaction in transactions:
+        print("Transaction ID:", transaction[0])
+        print("Transaction Date:", transaction[1])
+        print("Transaction Cost:", transaction[2])
+        print("Transaction Type:", transaction[3])
+        print("Transaction Category:", transaction[4])
+        print("Transaction Description:", transaction[5])
+        print("-----------------")
+
+
 def add_transaction_menu():
     while True:
-        date = input("Transaction Date:")
+        date = input("Transaction Date: ")
         if validate_date(date):
             while True:
                 try:
@@ -52,20 +68,17 @@ def add_transaction_menu():
 
 
 def view_transactions():
-    transactions = get_transactions()
-
-    if not transactions:
-        print("No transactions found.")
-        return
-
-    for transaction in transactions:
-        print("Transaction ID:", transaction[0])
-        print("Transaction Date:", transaction[1])
-        print("Transaction Cost:", transaction[2])
-        print("Transaction Type:", transaction[3])
-        print("Transaction Category:", transaction[4])
-        print("Transaction Description:", transaction[5])
-        print("-----------------")
+    while True:
+        choice = input("View Menu\n1. View All\n2. View by Category\n3. Back\nChoice: ")
+        if choice == "1":
+            transactions = get_transactions()
+            display_transactions(transactions)
+        elif choice == "2":
+            category = get_required_input("Category: ")
+            transactions = get_transactions_by_category(category)
+            display_transactions(transactions)
+        elif choice == "3":
+            return
 
 
 def update_transaction_menu():
